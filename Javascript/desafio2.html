@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio 2</title>
+    </head>
+    <body>
+        <button class="botao" onclick="criarCaixa()">Clique para criar caixa</button>
+        <div class="caixa"></div>
+        <input type="text" id="name">
+        <button onclick='adicionarNome()'>Clique para adicionar nome</button>
+        <script>
+            var indice = 0;
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            var k;
+            function criarCaixa() {
+                var divCaixa = document.createElement("div");
+                divCaixa.setAttribute('id', indice);
+                divCaixa.style.width = '100px';
+                divCaixa.style.height = '100px';
+                divCaixa.style.marginTop = '20px';
+                divCaixa.style.backgroundColor = '#f00';
+                //divCaixa.setAttribute('onmouseover', "mudarCor()");
+                divCaixa.addEventListener("mouseover", () => {
+                    var newColor = getRandomColor();
+                    divCaixa.style.backgroundColor = newColor;
+                });
+                console.log(divCaixa);
+
+                divCaixa
+                    .classList
+                    .add('caixa');
+
+                document
+                    .body
+                    .appendChild(divCaixa);
+
+                indice += 1;
+            }
+
+            var nomes = [];
+
+
+            var divLista = document.createElement("div");
+            var lista = document.createElement('lu');
+            lista.setAttribute('id', 'listaNomes');
+            divLista.appendChild(lista);
+            document.body.appendChild(lista);
+            var i = 0;
+            inputNome = document.getElementById('name');
+              /*for (i = 0; i <= indice2 - 1; i++) {
+                item = document.createElement('li');
+                textElement = document.createTextNode(nomes[i]);
+                item.appendChild(textElement);
+                lista.appendChild(item);
+                //var textElement = document.createTextNode(nomes[i]);
+                //lista.appendChild(textElement);
+            }*/
+
+             function adicionarNome() {
+                nomes[i] = inputNome.value;
+                item = document.createElement('li');
+                textElement = document.createTextNode(nomes[i]);
+                item.appendChild(textElement);
+                lista.appendChild(item);
+                i+=1;
+                
+                
+                }
+            
+
+            console.log(lista);
+        </script>
+    </body>
+</html>
